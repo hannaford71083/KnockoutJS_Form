@@ -1,0 +1,91 @@
+body {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px; }
+
+#body_div {
+  max-width: 350px;
+  margin: 0 auto; }
+
+body::after {
+  content: "";
+  background: url(../images/XST.CB.varnishedwood.jpg);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  z-index: -1; }
+
+h1 {
+  font-size: 30px; }
+
+label {
+  display: block; }
+
+input, select, button {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  height: 60px;
+  margin: 4px 0;
+  border: 0px solid red;
+  border-radius: 5px; }
+
+.select {
+  width: 90px;
+  border: 0px solid red;
+  border-radius: 5px; }
+
+textarea {
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+  width: 98%;
+  height: 150px;
+  border: 0px solid red;
+  border-radius: 5px; }
+
+button, input[type="button"] {
+  display: block;
+  width: 100%;
+  background-color: #803F15; }
+
+input[type="text"] {
+  display: block;
+  width: 100%;
+  padding-left: 3px; }
+
+ul {
+  margin: 0 0 15px 0; }
+
+.Nav {
+  padding: 16px;
+  background-color: #D4946A;
+  border: 0px solid red;
+  border-radius: 5px; }
+  .Nav li:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px; }
+  .Nav li:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; }
+  .Nav li {
+    display: inline-block;
+    background-color: #803F15;
+    width: 76px;
+    text-align: center; }
+  .Nav .hide {
+    display: none; }
+  .Nav .selected {
+    background-color: #552100; }
+
+#HomeScreenImage {
+  width: 100%;
+  height: 80%; }
+
+#googleMap {
+  width: 100% !important; }
+
+.validationMessage {
+  color: red; }
+
+/*# sourceMappingURL=index.css.map */

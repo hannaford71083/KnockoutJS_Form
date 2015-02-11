@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Knockout 1 Page App</title>
+
+    <link href="css/fonts.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
+    
+    
+</head>
+<body>
+    <div id="body_div">
+
+        <script src="scripts/jquery-2.1.3.js"></script>
+        <script src="scripts/knockout-3.2.0.debug.js"></script>
+        <script src="scripts/knockout.validation.js"></script>
+        <script src="scripts/googleMaps.js"></script>
+        <script src="scripts/index.js"></script>
+
+
+        <ul class="Nav" data-bind="foreach: FormData.Pages.NavArray, slideVisible: FormData.Pages.ShowNavigation">
+            <li class="NavItem" data-bind="text: $data, click: $root.FormData.Pages.NavPageSelector, css: { selected: $data == $root.FormData.Pages.CurrentPage().Name }"></li>
+        </ul>
+
+
+        <div data-bind="slideVisible: FormData.Pages.CurrentPage().Name == 'Home' , slideDuration:600" class="">
+            <div id="HomeScreenImage">
+                <h1>Who | Where | When</h1>
+                <br /><br />
+                <p>The quick survey form!</p>
+                <br />
+             </div>
+            <br />
+            <button data-bind="click: FormData.Pages.Next">Continue</button>
+        </div>
+
+
+        <div data-bind="slideVisible: FormData.Pages.CurrentPage().Name == 'Who', slideDuration:600">
+            <br />
+            <label for="Title">Title</label>
+            <select name="Title" data-bind="options: FormData.titles, value: FormData.Title, optionsValue: 'value', optionsText: 'caption'"></select>
+            <br />
+
+            <label for="FirstName">First Name</label>
+            <input name="FirstName" type="text" data-bind="value: FormData.FirstName" />
+            <br />
+
+            <label for="LastName">Last Name</label>
+            <input name="LastName" type="text" data-bind="value: FormData.LastName" />
+            <br />
+
+            <label>Data of Birth</label>
+            <select data-bind="options: FormData.days, value: FormData.day, optionsValue: 'value', optionsText: 'number'"></select>/
+            <select data-bind="options: FormData.months, value: FormData.month, optionsValue: 'value', optionsText: 'number'"></select>/
+            <select data-bind="options: FormData.years, value: FormData.year, optionsValue: 'value', optionsText: 'number'"></select>
+
+            <br />
+            <button data-bind="click: FormData.Pages.Next">Continue</button>
+
+        </div>
+
+
+        <div data-bind="slideVisible: FormData.Pages.CurrentPage().Name == 'Where', slideDuration:600">
+            <p>We found your location, if this is incorrect please select a new one using the button below, or drag the map pointer</p>
+            <div id="googleMap" style="width:300px;height:300px;"></div>
+            <input type="button" data-bind="value: FormData.MapButton, click: FormData.ChangeLocation">
+            <button data-bind="click: FormData.Pages.Next">Continue</button>
+        </div>
+
+
+        <div data-bind="slideVisible: FormData.Pages.CurrentPage().Name == 'When', slideDuration:600">
+            <p>Please modify the time and date if incorrect!</p>
+            <label>Current Date</label>
+            <select data-bind="options: FormData.days_Current, value: FormData.currentDay, optionsValue: 'value', optionsText: 'number'"></select>/
+            <select data-bind="options: FormData.months, value: FormData.currentMonth, optionsValue: 'value', optionsText: 'number'"></select>/
+            <select data-bind="options: FormData.years, value: FormData.currentYear, optionsValue: 'value', optionsText: 'number'"></select>
+
+            <br />
+
+            <label>Current Time</label>
+            <select data-bind="options: FormData.hours, value: FormData.currentHour, optionsValue: 'value', optionsText: 'number'"></select>:
+            <select data-bind="options: FormData.mins, value: FormData.currentMin, optionsValue: 'value', optionsText: 'number'"></select>:
+            <select data-bind="options: FormData.secs, value: FormData.currentSec, optionsValue: 'value', optionsText: 'number'"></select>
+   
+            <br /><br />
+            <button data-bind="click: FormData.Pages.Next">Continue</button>
+        </div>
+
+
+        <div data-bind="slideVisible: FormData.Pages.CurrentPage().Name == 'Submit', slideDuration:600">
+            <p>Your have filled in all the required fields and may now submit your details</p>
+            <p>If you have and any thoughts and feedback please leave below:</p>
+            <textarea data-bind="value: FormData.Pages.Feedback"></textarea>
+            <br /><br />
+            <button data-bind="click: FormData.SubmitAllData()">Submit Form</button>
+        </div>
+
+        <div data-bind="slideVisible: FormData.Pages.CurrentPage().Name == 'Thanks', slideDuration:600">
+            <h1>Success!</h1>
+            <br /><br />
+            Your form has been submitted, Thanks for your time <br />
+        </div>
+ 
+
+  </div><!-- id = body_div -->
+
+    
+
+</body>
+</html>

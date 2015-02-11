@@ -1,0 +1,125 @@
+﻿
+$font-stack: 'Oswald', sans-serif;
+$font-size_Normal: 20px;
+$background-colour_default: #D4946A;
+$button-colour_unselected: #803F15;
+$button-colour_selected: #552100;
+$border_default: 0px solid red;
+$border_radius: 5px;
+
+
+body {
+    font-family: $font-stack;
+    font-size: $font-size_Normal;
+}
+
+#body_div {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+body::after {
+  content: "";
+  background: url(../images/XST.CB.varnishedwood.jpg);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed; 
+  z-index: -1;
+}
+
+h1{
+    font-size: 30px;
+}
+
+label{
+    display:block;
+}
+
+input, select, button {
+    font-family: $font-stack;
+    font-size: $font-size_Normal;
+    height: 60px;
+    margin: 4px 0;
+    border: $border_default;
+    border-radius: $border_radius;
+}
+
+.select{
+    width: 90px;
+    border: $border_default;
+    border-radius: $border_radius;
+}
+
+textarea {
+    font-family: $font-stack;
+    font-size: $font-size_Normal;
+    width:98%;
+    height: 150px;
+    border: $border_default;
+    border-radius: $border_radius;
+}
+
+
+button, input[type="button"]{
+    display:block;
+    width :100%;
+    background-color: $button-colour_unselected;
+}
+
+input[type="text"]{
+    display:block;
+    width :100%;
+    padding-left: 3px;
+}
+
+
+ul{
+    margin:0 0 15px 0;
+}
+
+.Nav {
+    padding: 16px;
+    background-color: $background-colour_default;
+    border: $border_default;
+    border-radius: $border_radius;
+
+    li:first-child{
+        border-top-left-radius: $border_radius;
+        border-bottom-left-radius: $border_radius;
+    }
+
+    li:last-child{ 
+        border-top-right-radius: $border_radius;
+        border-bottom-right-radius: $border_radius;
+    }
+
+    li {
+        display: inline-block;
+        background-color: $button-colour_unselected;
+        width: 76px;
+        text-align: center;
+    }
+
+    .hide { display:none; }
+
+    .selected {
+        background-color: $button-colour_selected;
+    }
+}
+
+#HomeScreenImage {
+    width:100%;
+    height: 80%;
+
+}
+
+#googleMap{
+    width:100% !important;
+}
+
+.validationMessage{
+    color: red;
+}
